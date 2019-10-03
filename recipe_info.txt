@@ -1,0 +1,4 @@
+Recipe Name: Kentucky Fried Chicken
+Ingredients: Time, Money
+Instructions: 1) Go to KFC store. 2) Purchase Chicken. 3) Enjoy Chicken. 4) Cry.
+Postcode: M8 4JB

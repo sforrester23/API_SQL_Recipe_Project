@@ -10,6 +10,8 @@ class Recipe_db():
         self.password = password
         self.connect_db = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + self.server + ';DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
         self.cursor = self.connect_db.cursor()
+        self.recipe_list = []
+        self.recipe_dict = {}
 
     # Define a method for running a query, but encapsulate it so it can only be run from inside this script (by other methods)
     def __filter_query(self, query):
@@ -50,4 +52,37 @@ class Recipe_db():
         self.__filter_query("DELETE FROM Recipe_List WHERE Recipe_Name = '{}'".format(recipe_name))
         self.connect_db.commit()
         print('Delete Command Executed')
+
+    # define a method for appending object items to list
+    def append_object_to_list(self, object):
+        self.recipe_list.append(object)
+
+    # define a method for making the recipe information into a list (not sure how needed this is)
+    def append_all_recipe_elements(self):
+        all_recipe_query = self.query_all_recipes()
+        while True:
+            record = all_recipe_query.fetchone()
+            if record is None:
+                break
+            self.recipe_list.append(record)
+
+    # define a method for making the recipe list into a dictionary
+    def make_recipe_dictionary(self):
+        all_recipe_query = self.query_all_recipes()
+        count = 1
+        while True:
+            recipe = {}
+            record = all_recipe_query.fetchone()
+            if record is None:
+                break
+            recipe['Recipe Name'] = record[0]
+            recipe['Ingredients'] = record[1]
+            recipe['Instructions'] = record[2]
+            recipe['Postcode'] = record[3]
+            self.recipe_dict['Recipe #{}'.format(count)] = recipe
+            count += 1
+
+
+
+
 

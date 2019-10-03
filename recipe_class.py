@@ -9,24 +9,28 @@ class Recipe():
         self.postcode = postcode
 
     # defining the methods
+    # define a method to export recipe to txt
+    def write_to_file(file, order_item):
+        try:
+            with open(file, 'a') as opened_file:
+                opened_file.write(order_item + '\n')
 
-    # new()
-        # create a recipe obj
+            opened_file.close()
+        except FileNotFoundError:
+            print('File not Found')
 
-    # save()
-        # save a recipe objc to the DB (make persistant)
+    # define a funciton to take a class object of recipe and write it to a txt file
+    def write_recipe_to_file(self, file):
+        recipe_info = [self.name, self.ingredients, self.instructions, self.postcode]
+        recipe_titles = ['Recipe Name', 'Ingredients', 'Instructions', 'Postcode']
+        for index in range(len(recipe_info)):
+            try:
+                with open(file, 'a') as opened_file:
+                    opened_file.write(recipe_titles[index] + ': ' + recipe_info[index] + '\n')
 
-    # read() - on the DB class methods
-        # read one object
+                opened_file.close()
+            except FileNotFoundError:
+                print('File not Found')
 
-    # all() - on the DB class methods
-        # get all the instances from the DB
-        # get each record
-        # create individual instances of recipe
-        # store in a list
-        # return the list
-
-    # destroy()
-        # destroy one object
 
     # get postcode information
