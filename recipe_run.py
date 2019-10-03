@@ -45,8 +45,21 @@ print(recipe_db.recipe_list)
 recipe_4_list=[recipe_db.recipe_list[3].name, recipe_db.recipe_list[3].ingredients, recipe_db.recipe_list[3].instructions, recipe_db.recipe_list[3].postcode]
 print(recipe_4_list)
 
+recipe_1 = recipe_db.recipe_list[0]
+recipe_2 = recipe_db.recipe_list[1]
+recipe_3 = recipe_db.recipe_list[2]
 recipe_4 = recipe_db.recipe_list[3]
-recipe_4.write_recipe_to_file('recipe_info.txt')
+recipe_5 = recipe_db.recipe_list[4]
+for index in range(len(recipe_db.recipe_list)):
+    open('recipe_info.txt', 'a').write('Recipe {} \n'.format(index+1))
+    recipe_db.recipe_list[index].write_recipe_to_file('recipe_info.txt')
+    open('recipe_info.txt', 'a').write('\n')
+
+# recipe_1.write_recipe_to_file('recipe_info.txt')
+# recipe_2.write_recipe_to_file('recipe_info.txt')
+# recipe_3.write_recipe_to_file('recipe_info.txt')
+# recipe_4.write_recipe_to_file('recipe_info.txt')
+# recipe_5.write_recipe_to_file('recipe_info.txt')
 
 
 # write information to list

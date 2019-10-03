@@ -10,16 +10,8 @@ class Recipe():
 
     # defining the methods
     # define a method to export recipe to txt
-    def write_to_file(file, order_item):
-        try:
-            with open(file, 'a') as opened_file:
-                opened_file.write(order_item + '\n')
 
-            opened_file.close()
-        except FileNotFoundError:
-            print('File not Found')
-
-    # define a funciton to take a class object of recipe and write it to a txt file
+    # define a method to take a class object of recipe and write it to a txt file
     def write_recipe_to_file(self, file):
         recipe_info = [self.name, self.ingredients, self.instructions, self.postcode]
         recipe_titles = ['Recipe Name', 'Ingredients', 'Instructions', 'Postcode']
