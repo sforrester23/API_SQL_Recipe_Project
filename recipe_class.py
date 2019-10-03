@@ -1,6 +1,12 @@
+from recipe_db_connect import *
 # Define a class recipe
-
+class Recipe():
     # Give it the new attributes
+    def __init__(self, name, ingredients, instructions, postcode):
+        self.name = name
+        self.ingredients = ingredients
+        self.instructions = instructions
+        self.postcode = postcode
 
     # defining the methods
 
