@@ -52,26 +52,31 @@ print(recipe_db.recipe_list)
 
 
 # for loop for iterating over recipe list and writing the information to a file. The write file extracts the attributes from their class objects so they can be viewed in normal terms, not class object terms
-for index in range(len(recipe_db.recipe_list)):
-    open('recipe_info.txt', 'a').write('Recipe {} \n'.format(index+1))
-    recipe_db.recipe_list[index].write_recipe_to_file('recipe_info.txt')
-    open('recipe_info.txt', 'a').write('\n')
+# for index in range(len(recipe_db.recipe_list)):
+#     open('recipe_info.txt', 'a').write('Recipe {} \n'.format(index+1))
+#     recipe_db.recipe_list[index].write_recipe_to_file('recipe_info.txt')
+#     open('recipe_info.txt', 'a').write('\n')
 
 # get all the recipe class objects to test the print
-# recipe_1 = recipe_db.recipe_list[0]
-# recipe_2 = recipe_db.recipe_list[1]
-# recipe_3 = recipe_db.recipe_list[2]
-# recipe_4 = recipe_db.recipe_list[3]
-# recipe_5 = recipe_db.recipe_list[4]
+recipe_1 = recipe_db.recipe_list[0]
+recipe_2 = recipe_db.recipe_list[1]
+recipe_3 = recipe_db.recipe_list[2]
+recipe_4 = recipe_db.recipe_list[3]
+recipe_5 = recipe_db.recipe_list[4]
 # recipe_1.write_recipe_to_file('recipe_info.txt')
 # recipe_2.write_recipe_to_file('recipe_info.txt')
 # recipe_3.write_recipe_to_file('recipe_info.txt')
 # recipe_4.write_recipe_to_file('recipe_info.txt')
 # recipe_5.write_recipe_to_file('recipe_info.txt')
 
+print(recipe_1.json_for_postcode())
+
 # testing the method that makes the recipes into a dictionary of dictionaries
 # write information to
 # recipe_db.make_recipe_dictionary()
 # print(recipe_db.recipe_dict)
+
+for index in range(len(recipe_db.recipe_list)):
+    write(recipe_db.recipe_list[index].json_for_postcode())
 
 

@@ -1,4 +1,5 @@
 from recipe_db_connect import *
+import requests
 # Define a class recipe
 class Recipe():
     # Give it the new attributes
@@ -26,3 +27,12 @@ class Recipe():
 
 
     # get postcode information
+    def get_postcode(self):
+        return self.postcode
+
+    def json_for_postcode(self):
+        resp = requests.get('http://api.postcodes.io/postcodes/' + self.postcode)
+        return resp.json()
+
+
+
