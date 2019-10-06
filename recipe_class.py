@@ -30,9 +30,10 @@ class Recipe():
     def get_postcode(self):
         return self.postcode
 
+    # define a method for getting the information on the postcode in the recipe from the API
     def json_for_postcode(self):
         resp = requests.get('http://api.postcodes.io/postcodes/' + self.postcode)
-        return resp.json()
+        return resp.json()['result']
 
 
 

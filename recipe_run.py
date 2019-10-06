@@ -69,14 +69,12 @@ recipe_5 = recipe_db.recipe_list[4]
 # recipe_4.write_recipe_to_file('recipe_info.txt')
 # recipe_5.write_recipe_to_file('recipe_info.txt')
 
-print(recipe_1.json_for_postcode())
-
 # testing the method that makes the recipes into a dictionary of dictionaries
 # write information to
 # recipe_db.make_recipe_dictionary()
 # print(recipe_db.recipe_dict)
 
-for index in range(len(recipe_db.recipe_list)):
-    write(recipe_db.recipe_list[index].json_for_postcode())
+# get the recipe information from the API and print it
+print(recipe_1.json_for_postcode())
 
 
